@@ -11,11 +11,19 @@ import FSCalendar
 class SheduleViewController: UIViewController {
     
     var calendarHeightConstaraint: NSLayoutConstraint!
+    let idSheduleCell = "idSheduleCell"
     
     private var calendar: FSCalendar = {
         let calendar = FSCalendar()
         calendar.translatesAutoresizingMaskIntoConstraints = false
         return calendar
+    }()
+    
+    let tableView: UITableView = {
+        let table = UITableView()
+        table.translatesAutoresizingMaskIntoConstraints = false
+        
+        return table
     }()
     
     let showHideButton: UIButton = {
@@ -74,9 +82,6 @@ class SheduleViewController: UIViewController {
             break
         }
     }
-    
-    
-    
 }
 
 extension SheduleViewController: FSCalendarDataSource, FSCalendarDelegate {
@@ -117,4 +122,19 @@ extension SheduleViewController {
         ])
     }
     
+}
+
+//MARK: Create TableView
+
+extension SheduleViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: idSheduleCell, for: indexPath)
+        
+        return cell
+    }
 }
