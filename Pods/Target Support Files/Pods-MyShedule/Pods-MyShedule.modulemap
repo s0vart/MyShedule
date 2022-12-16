@@ -1,0 +1,6 @@
+framework module Pods_MyShedule {
+  umbrella header "Pods-MyShedule-umbrella.h"
+
+  export *
+  module * { export * }
+}
