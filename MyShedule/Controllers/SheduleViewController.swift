@@ -46,6 +46,10 @@ class SheduleViewController: UIViewController {
         calendar.delegate = self
         calendar.dataSource = self
         
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(SheduleTableViewCell.self, forCellReuseIdentifier: idSheduleCell)
+        
         showHideButton.addTarget(self, action: #selector(showHideButtonTapped), for: .touchUpInside)
         
         calendar.scope = .week
@@ -120,6 +124,15 @@ extension SheduleViewController {
             showHideButton.widthAnchor.constraint(equalToConstant: 100),
             showHideButton.heightAnchor.constraint(equalToConstant: 20)
         ])
+        
+        view.addSubview(tableView)
+        
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: showHideButton.bottomAnchor, constant: 10),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0)
+        ])
     }
     
 }
@@ -130,11 +143,12 @@ extension SheduleViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 5
+    
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: idSheduleCell, for: indexPath)
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: idSheduleCell, for: indexPath) as! SheduleTableViewCell
+        cell.textLabel!.text = "Cell"
         return cell
     }
 }
