@@ -19,6 +19,8 @@ class SheduleViewController: UIViewController {
         return calendar
     }()
     
+    //MARK: UI ELEMENTS
+    
     let tableView: UITableView = {
         let table = UITableView()
         table.translatesAutoresizingMaskIntoConstraints = false
@@ -34,6 +36,8 @@ class SheduleViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
+    
+    //MARK: LIFE CICLE
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,6 +92,8 @@ class SheduleViewController: UIViewController {
     }
 }
 
+//MARK: EXTENSHIONS
+
 extension SheduleViewController: FSCalendarDataSource, FSCalendarDelegate {
     
     func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
@@ -99,8 +105,6 @@ extension SheduleViewController: FSCalendarDataSource, FSCalendarDelegate {
          print(date)
     }
 }
-
-//MARK: Set Constrates
 
 extension SheduleViewController {
     
@@ -131,7 +135,7 @@ extension SheduleViewController {
             tableView.topAnchor.constraint(equalTo: showHideButton.bottomAnchor, constant: 10),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0)
+            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0)
         ])
     }
     
@@ -142,13 +146,16 @@ extension SheduleViewController {
 extension SheduleViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 15
     
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 90
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: idSheduleCell, for: indexPath) as! SheduleTableViewCell
-        cell.textLabel!.text = "Cell"
         return cell
     }
 }
