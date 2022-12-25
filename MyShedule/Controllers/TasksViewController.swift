@@ -10,13 +10,9 @@ import FSCalendar
 
 class TasksViewController: UIViewController {
     
-    var calendarHeightConstaraint: NSLayoutConstraint!
+    //MARK: - Public Properties
     
-    private var calendar: FSCalendar = {
-        let calendar = FSCalendar()
-        calendar.translatesAutoresizingMaskIntoConstraints = false
-        return calendar
-    }()
+    var calendarHeightConstaraint: NSLayoutConstraint!
     
     let showHideButton: UIButton = {
         let button = UIButton()
@@ -27,12 +23,22 @@ class TasksViewController: UIViewController {
         return button
     }()
     
+    //MARK: - Private Properties
+    
+    private var calendar: FSCalendar = {
+        let calendar = FSCalendar()
+        calendar.translatesAutoresizingMaskIntoConstraints = false
+        return calendar
+    }()
+    
+    //MARK: - Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Tasks"
         view.backgroundColor = .white
         
-        setConstrates()
+        setConstraints()
         swipeAction()
         
         calendar.delegate = self
@@ -43,15 +49,7 @@ class TasksViewController: UIViewController {
         calendar.scope = .week
     }
     
-    @objc func showHideButtonTapped() {
-        if calendar.scope == .week {
-            calendar.setScope(.month, animated: true)
-            showHideButton.setTitle("Close calendar", for: .normal)
-        } else {
-            calendar.setScope(.week, animated: true)
-            showHideButton.setTitle("Open calendar", for: .normal)
-        }
-    }
+    //MARK: - Public Method
     
     func swipeAction() {
         let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe))
@@ -61,6 +59,18 @@ class TasksViewController: UIViewController {
         let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe))
         swipeDown.direction = .down
         calendar.addGestureRecognizer(swipeDown)
+    }
+    
+    //MARK: - OBJC Method
+    
+    @objc func showHideButtonTapped() {
+        if calendar.scope == .week {
+            calendar.setScope(.month, animated: true)
+            showHideButton.setTitle("Close calendar", for: .normal)
+        } else {
+            calendar.setScope(.week, animated: true)
+            showHideButton.setTitle("Open calendar", for: .normal)
+        }
     }
     
     @objc func handleSwipe(gesture: UISwipeGestureRecognizer) {
@@ -74,10 +84,9 @@ class TasksViewController: UIViewController {
             break
         }
     }
-    
-    
-    
 }
+
+//MARK: - Extensions
 
 extension TasksViewController: FSCalendarDataSource, FSCalendarDelegate {
     
@@ -91,11 +100,11 @@ extension TasksViewController: FSCalendarDataSource, FSCalendarDelegate {
     }
 }
 
-//MARK: Set Constrates
-
 extension TasksViewController {
     
-    func setConstrates() {
+    //MARK: - Setup Constraints
+    
+    func setConstraints() {
         
         view.addSubview(calendar)
         

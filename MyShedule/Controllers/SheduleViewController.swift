@@ -10,16 +10,11 @@ import FSCalendar
 
 class SheduleViewController: UIViewController {
     
+    //MARK: - Public Properties
+    
     var calendarHeightConstaraint: NSLayoutConstraint!
+    
     let idSheduleCell = "idSheduleCell"
-    
-    private var calendar: FSCalendar = {
-        let calendar = FSCalendar()
-        calendar.translatesAutoresizingMaskIntoConstraints = false
-        return calendar
-    }()
-    
-    //MARK: UI ELEMENTS
     
     let tableView: UITableView = {
         let table = UITableView()
@@ -37,14 +32,22 @@ class SheduleViewController: UIViewController {
         return button
     }()
     
-    //MARK: LIFE CICLE
-
+    //MARK: - Private Properties
+    
+    private var calendar: FSCalendar = {
+        let calendar = FSCalendar()
+        calendar.translatesAutoresizingMaskIntoConstraints = false
+        return calendar
+    }()
+    
+    //MARK: - Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Shedule"
         view.backgroundColor = .white
         
-        setConstrates()
+        setConstraints()
         swipeAction() 
         
         calendar.delegate = self
@@ -59,15 +62,7 @@ class SheduleViewController: UIViewController {
         calendar.scope = .week
     }
     
-    @objc func showHideButtonTapped() {
-        if calendar.scope == .week {
-            calendar.setScope(.month, animated: true)
-            showHideButton.setTitle("Close calendar", for: .normal)
-        } else {
-            calendar.setScope(.week, animated: true)
-            showHideButton.setTitle("Open calendar", for: .normal)
-        }
-    }
+    //MARK: - Public Method
     
     func swipeAction() {
         let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe))
@@ -77,6 +72,18 @@ class SheduleViewController: UIViewController {
         let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe))
         swipeDown.direction = .down
         calendar.addGestureRecognizer(swipeDown)
+    }
+    
+    //MARK: - OBJC Method
+    
+    @objc func showHideButtonTapped() {
+        if calendar.scope == .week {
+            calendar.setScope(.month, animated: true)
+            showHideButton.setTitle("Close calendar", for: .normal)
+        } else {
+            calendar.setScope(.week, animated: true)
+            showHideButton.setTitle("Open calendar", for: .normal)
+        }
     }
     
     @objc func handleSwipe(gesture: UISwipeGestureRecognizer) {
@@ -92,7 +99,7 @@ class SheduleViewController: UIViewController {
     }
 }
 
-//MARK: EXTENSHIONS
+//MARK: - Extensions
 
 extension SheduleViewController: FSCalendarDataSource, FSCalendarDelegate {
     
@@ -100,15 +107,13 @@ extension SheduleViewController: FSCalendarDataSource, FSCalendarDelegate {
         calendarHeightConstaraint.constant = bounds.height
         view.layoutIfNeeded()
     }
-    
-    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-         print(date)
-    }
 }
 
 extension SheduleViewController {
     
-    func setConstrates() {
+    //MARK: - Setup Constraints
+    
+    func setConstraints() {
         
         view.addSubview(calendar)
         
@@ -141,13 +146,13 @@ extension SheduleViewController {
     
 }
 
-//MARK: Create TableView
-
 extension SheduleViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    //MARK: - Create TableView
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 15
-    
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
