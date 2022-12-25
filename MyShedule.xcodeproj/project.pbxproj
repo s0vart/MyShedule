@@ -14,6 +14,9 @@
 		088B5DF929356BDE00EDEE09 /* SheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088B5DF829356BDE00EDEE09 /* SheduleViewController.swift */; };
 		088B5DFB29356BF500EDEE09 /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088B5DFA29356BF500EDEE09 /* TasksViewController.swift */; };
 		088B5DFD29356C0600EDEE09 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088B5DFC29356C0600EDEE09 /* ContactsViewController.swift */; };
+		08ABD4E0294D2B4C0074C570 /* SheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08ABD4DF294D2B4C0074C570 /* SheduleTableViewCell.swift */; };
+		08ABD5042956AD730074C570 /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08ABD5032956AD730074C570 /* UIStackView.swift */; };
+		08ABD5062956B60F0074C570 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08ABD5052956B60F0074C570 /* UILabel.swift */; };
 		48C578C6FBCD26B1A95B2B52 /* Pods_MyShedule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DCE54689ACDA60C9791D840 /* Pods_MyShedule.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +30,9 @@
 		088B5DF829356BDE00EDEE09 /* SheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheduleViewController.swift; sourceTree = "<group>"; };
 		088B5DFA29356BF500EDEE09 /* TasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
 		088B5DFC29356C0600EDEE09 /* ContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
+		08ABD4DF294D2B4C0074C570 /* SheduleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheduleTableViewCell.swift; sourceTree = "<group>"; };
+		08ABD5032956AD730074C570 /* UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
+		08ABD5052956B60F0074C570 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		15714E150E1765ADA904B2E4 /* Pods-MyShedule.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyShedule.debug.xcconfig"; path = "Target Support Files/Pods-MyShedule/Pods-MyShedule.debug.xcconfig"; sourceTree = "<group>"; };
 		2DCE54689ACDA60C9791D840 /* Pods_MyShedule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyShedule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEF4F786F7D9CB541CB99DD8 /* Pods-MyShedule.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyShedule.release.xcconfig"; path = "Target Support Files/Pods-MyShedule/Pods-MyShedule.release.xcconfig"; sourceTree = "<group>"; };
@@ -67,6 +73,8 @@
 			children = (
 				088B5DF5293569D200EDEE09 /* Application */,
 				088B5DF6293569DF00EDEE09 /* Controllers */,
+				08ABD4DE294D2B1C0074C570 /* Model */,
+				08ABD5012956AD480074C570 /* Extensions */,
 				088B5DF7293569F700EDEE09 /* Resources */,
 			);
 			path = MyShedule;
@@ -101,6 +109,39 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		08ABD4DD294D2B060074C570 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				08ABD4DF294D2B4C0074C570 /* SheduleTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		08ABD4DE294D2B1C0074C570 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				08ABD4DD294D2B060074C570 /* Cell */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		08ABD5012956AD480074C570 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				08ABD5022956AD5D0074C570 /* UIKit */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		08ABD5022956AD5D0074C570 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				08ABD5032956AD730074C570 /* UIStackView.swift */,
+				08ABD5052956B60F0074C570 /* UILabel.swift */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
 		9659B1EDF7E30085431E1295 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -115,7 +156,6 @@
 				15714E150E1765ADA904B2E4 /* Pods-MyShedule.debug.xcconfig */,
 				CEF4F786F7D9CB541CB99DD8 /* Pods-MyShedule.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -233,10 +273,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08ABD4E0294D2B4C0074C570 /* SheduleTableViewCell.swift in Sources */,
 				088B5DE6293568D400EDEE09 /* MainTabBarController.swift in Sources */,
+				08ABD5042956AD730074C570 /* UIStackView.swift in Sources */,
 				088B5DFB29356BF500EDEE09 /* TasksViewController.swift in Sources */,
 				088B5DF929356BDE00EDEE09 /* SheduleViewController.swift in Sources */,
 				088B5DE2293568D400EDEE09 /* AppDelegate.swift in Sources */,
+				08ABD5062956B60F0074C570 /* UILabel.swift in Sources */,
 				088B5DFD29356C0600EDEE09 /* ContactsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
