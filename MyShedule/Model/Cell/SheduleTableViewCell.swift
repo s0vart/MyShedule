@@ -16,7 +16,7 @@ class SheduleTableViewCell: UITableViewCell {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
             self.setupConstrate()
-            print(self.frame.height)
+            self.selectionStyle = .none
         }
     }
     
@@ -27,13 +27,13 @@ class SheduleTableViewCell: UITableViewCell {
     //MARK: - Public Properties
     
     let lessonName = UILabel(text: "Programming", font: UIFont(name: "Avenir Next Demi Bold", size: 20), aligment: .left)
-    let teacherName = UILabel(text: "Naumov Aleksandr Viktorovich", font: UIFont(name: "Avenir Next Demi Bold", size: 20), aligment: .right)
+    let teacherName = UILabel(text: "Naumov Aleksandr Viktorovich", font: UIFont(name: "Avenir Next", size: 20), aligment: .right)
     let lessonTime = UILabel(text: "08:00", font: UIFont(name: "Avenir Next Demi Bold", size: 20), aligment: .left)
-    let typeLabel = UILabel(text: "TYPE:", font: UIFont(name: "AAvenir Next Demi Bold", size: 20), aligment: .right)
+    let typeLabel = UILabel(text: "Type:", font: UIFont(name: "Avenir Next Demi Bold", size: 20), aligment: .right)
     let lessonType = UILabel(text: "Lection", font: UIFont(name: "Avenir Next", size: 20), aligment: .left)
-    let corpsLabel = UILabel(text: "CORPS:", font: UIFont(name: "Avenir Next Demi Bold", size: 20), aligment: .right)
-    let lessonCorps = UILabel(text: "1-04", font: UIFont(name: "Avenir Next", size: 20), aligment: .left)
-    let roomLabel = UILabel(text: "ROOM:", font: UIFont(name: "Avenir Next Demi Bold", size: 20), aligment: .right)
+    let corpsLabel = UILabel(text: "Corps:", font: UIFont(name: "Avenir Next Demi Bold", size: 20), aligment: .right)
+    let lessonCorps = UILabel(text: "1", font: UIFont(name: "Avenir Next", size: 20), aligment: .left)
+    let roomLabel = UILabel(text: "Room:", font: UIFont(name: "Avenir Next Demi Bold", size: 20), aligment: .right)
     let lessonRoom = UILabel(text: "223", font: UIFont(name: "Avenir Next", size: 20), aligment: .left)
     
     //MARK: - Setup Constraints
@@ -54,7 +54,7 @@ class SheduleTableViewCell: UITableViewCell {
         self.addSubview(lessonTime)
         NSLayoutConstraint.activate([
             lessonTime.topAnchor.constraint(equalTo: topStackView.bottomAnchor, constant: 10),
-            lessonTime.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
+            lessonTime.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 5),
             lessonTime.widthAnchor.constraint(equalToConstant: 100),
             lessonTime.heightAnchor.constraint(equalToConstant: 25)
         ])

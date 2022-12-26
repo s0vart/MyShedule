@@ -14,6 +14,16 @@ class TasksViewController: UIViewController {
     
     var calendarHeightConstaraint: NSLayoutConstraint!
     
+    let idTasksCell = "idTasksCell"
+    
+    let tableView: UITableView = {
+        let table = UITableView()
+        table.bounces = false
+        table.translatesAutoresizingMaskIntoConstraints = false
+        
+        return table
+    }()
+    
     let showHideButton: UIButton = {
         let button = UIButton()
         button.setTitle("Open calendar", for: .normal)
@@ -43,6 +53,10 @@ class TasksViewController: UIViewController {
         
         calendar.delegate = self
         calendar.dataSource = self
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(TasksTableViewCell.self, forCellReuseIdentifier: idTasksCell)
         
         showHideButton.addTarget(self, action: #selector(showHideButtonTapped), for: .touchUpInside)
         
@@ -124,6 +138,43 @@ extension TasksViewController {
             showHideButton.widthAnchor.constraint(equalToConstant: 100),
             showHideButton.heightAnchor.constraint(equalToConstant: 20)
         ])
+        
+        view.addSubview(tableView)
+        
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: showHideButton.bottomAnchor, constant: 10),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
+            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0)
+        ])
     }
     
+}
+
+extension TasksViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    //MARK: - Create TableView
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 15
+        
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 90
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: idTasksCell, for: indexPath) as! TasksTableViewCell
+        cell.cellTaskDelegate = self
+        cell.index = indexPath
+        
+        return cell
+    }
+}
+
+extension TasksViewController: PressReadyButtonTaskProtocol {
+    func readyButtonTapped(indexPath: IndexPath) {
+        
+    }
 }

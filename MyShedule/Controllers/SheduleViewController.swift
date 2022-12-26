@@ -18,6 +18,7 @@ class SheduleViewController: UIViewController {
     
     let tableView: UITableView = {
         let table = UITableView()
+        table.bounces = false
         table.translatesAutoresizingMaskIntoConstraints = false
         
         return table
