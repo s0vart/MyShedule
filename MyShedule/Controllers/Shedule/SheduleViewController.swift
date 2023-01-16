@@ -61,6 +61,8 @@ class SheduleViewController: UIViewController {
         showHideButton.addTarget(self, action: #selector(showHideButtonTapped), for: .touchUpInside)
         
         calendar.scope = .week
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(AddBarButtonItem))
     }
     
     //MARK: - Public Method
@@ -97,6 +99,11 @@ class SheduleViewController: UIViewController {
         default:
             break
         }
+    }
+    
+    @objc func AddBarButtonItem() {
+        let sheduleOption = OptionsSheduleTableViewController()
+        navigationController?.pushViewController(sheduleOption, animated: true)
     }
 }
 

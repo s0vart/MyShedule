@@ -20,6 +20,8 @@
 		08ABD5062956B60F0074C570 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08ABD5052956B60F0074C570 /* UILabel.swift */; };
 		08ABD5082958B45E0074C570 /* TasksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08ABD5072958B45E0074C570 /* TasksTableViewCell.swift */; };
 		08ABD50A295A16250074C570 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08ABD509295A16250074C570 /* UIFont.swift */; };
+		08E090E42965027F0040C3AD /* OptionsSheduleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E090E32965027F0040C3AD /* OptionsSheduleTableViewController.swift */; };
+		08E090E929680E280040C3AD /* OptionsSheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E090E829680E280040C3AD /* OptionsSheduleTableViewCell.swift */; };
 		48C578C6FBCD26B1A95B2B52 /* Pods_MyShedule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DCE54689ACDA60C9791D840 /* Pods_MyShedule.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +41,8 @@
 		08ABD5052956B60F0074C570 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		08ABD5072958B45E0074C570 /* TasksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksTableViewCell.swift; sourceTree = "<group>"; };
 		08ABD509295A16250074C570 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
+		08E090E32965027F0040C3AD /* OptionsSheduleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsSheduleTableViewController.swift; sourceTree = "<group>"; };
+		08E090E829680E280040C3AD /* OptionsSheduleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsSheduleTableViewCell.swift; sourceTree = "<group>"; };
 		15714E150E1765ADA904B2E4 /* Pods-MyShedule.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyShedule.debug.xcconfig"; path = "Target Support Files/Pods-MyShedule/Pods-MyShedule.debug.xcconfig"; sourceTree = "<group>"; };
 		2DCE54689ACDA60C9791D840 /* Pods_MyShedule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyShedule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEF4F786F7D9CB541CB99DD8 /* Pods-MyShedule.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyShedule.release.xcconfig"; path = "Target Support Files/Pods-MyShedule/Pods-MyShedule.release.xcconfig"; sourceTree = "<group>"; };
@@ -107,9 +111,9 @@
 			isa = PBXGroup;
 			children = (
 				088B5DE5293568D400EDEE09 /* MainTabBarController.swift */,
-				088B5DF829356BDE00EDEE09 /* SheduleViewController.swift */,
-				088B5DFA29356BF500EDEE09 /* TasksViewController.swift */,
-				088B5DFC29356C0600EDEE09 /* ContactsViewController.swift */,
+				08E090DE296501FA0040C3AD /* Shedule */,
+				08E090DF296502070040C3AD /* Tasks */,
+				08E090E0296502140040C3AD /* Contacts */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -127,8 +131,9 @@
 		08ABD4DD294D2B060074C570 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				08ABD4DF294D2B4C0074C570 /* SheduleTableViewCell.swift */,
-				08ABD5072958B45E0074C570 /* TasksTableViewCell.swift */,
+				08E090E729680D2C0040C3AD /* Shedule */,
+				08E090E629680D180040C3AD /* Tasks */,
+				08E090E529680D090040C3AD /* Contacts */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -157,6 +162,55 @@
 				08ABD509295A16250074C570 /* UIFont.swift */,
 			);
 			path = UIKit;
+			sourceTree = "<group>";
+		};
+		08E090DE296501FA0040C3AD /* Shedule */ = {
+			isa = PBXGroup;
+			children = (
+				088B5DF829356BDE00EDEE09 /* SheduleViewController.swift */,
+				08E090E32965027F0040C3AD /* OptionsSheduleTableViewController.swift */,
+			);
+			path = Shedule;
+			sourceTree = "<group>";
+		};
+		08E090DF296502070040C3AD /* Tasks */ = {
+			isa = PBXGroup;
+			children = (
+				088B5DFA29356BF500EDEE09 /* TasksViewController.swift */,
+			);
+			path = Tasks;
+			sourceTree = "<group>";
+		};
+		08E090E0296502140040C3AD /* Contacts */ = {
+			isa = PBXGroup;
+			children = (
+				088B5DFC29356C0600EDEE09 /* ContactsViewController.swift */,
+			);
+			path = Contacts;
+			sourceTree = "<group>";
+		};
+		08E090E529680D090040C3AD /* Contacts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Contacts;
+			sourceTree = "<group>";
+		};
+		08E090E629680D180040C3AD /* Tasks */ = {
+			isa = PBXGroup;
+			children = (
+				08ABD5072958B45E0074C570 /* TasksTableViewCell.swift */,
+			);
+			path = Tasks;
+			sourceTree = "<group>";
+		};
+		08E090E729680D2C0040C3AD /* Shedule */ = {
+			isa = PBXGroup;
+			children = (
+				08ABD4DF294D2B4C0074C570 /* SheduleTableViewCell.swift */,
+				08E090E829680E280040C3AD /* OptionsSheduleTableViewCell.swift */,
+			);
+			path = Shedule;
 			sourceTree = "<group>";
 		};
 		9659B1EDF7E30085431E1295 /* Frameworks */ = {
@@ -298,9 +352,11 @@
 				088B5DF929356BDE00EDEE09 /* SheduleViewController.swift in Sources */,
 				0867CDA7295A3DDD00658F36 /* PressButtonProtocols.swift in Sources */,
 				088B5DE2293568D400EDEE09 /* AppDelegate.swift in Sources */,
+				08E090E929680E280040C3AD /* OptionsSheduleTableViewCell.swift in Sources */,
 				08ABD5062956B60F0074C570 /* UILabel.swift in Sources */,
 				08ABD50A295A16250074C570 /* UIFont.swift in Sources */,
 				088B5DFD29356C0600EDEE09 /* ContactsViewController.swift in Sources */,
+				08E090E42965027F0040C3AD /* OptionsSheduleTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
